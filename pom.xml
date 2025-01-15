@@ -16,8 +16,8 @@
   </description>
 
   <properties>
-    <maven.compiler.source>23</maven.compiler.source>
-    <maven.compiler.target>23</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -80,5 +80,13 @@
       </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub debu999 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/debu999/version-tracker</url>
+    </repository>
+  </distributionManagement>
 
 </project>
