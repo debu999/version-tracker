@@ -1,9 +1,9 @@
-package org.doogle;
+package io.github.debu999;
 
 public class LibraryMetadata implements Metadata {
 
   // Specify the groupId and artifactId of the library you're interested in
-  public static String GROUP_ID = "org.doogle";
+  public static String GROUP_ID = "io.github.debu999";
   public static String ARTIFACT_ID = "version-tracker";
   public static String LIBRARY_PROPERTIES_PATH = String.format(
       "META-INF/maven/%s/%s/pom.properties", GROUP_ID, ARTIFACT_ID);

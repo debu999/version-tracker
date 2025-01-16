@@ -1,4 +1,4 @@
-package org.doogle;
+package io.github.debu999;
 
 public interface Metadata {
 
