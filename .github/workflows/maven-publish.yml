@@ -19,7 +19,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        java: [ 17, 21 ]
+        java: [ 17, 21, 23 ]
 
     steps:
     - uses: actions/checkout@v4
@@ -32,9 +32,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven (JDK ${{ matrix.java }})
-      run: mvn -B package --file pom.xml -Dmaven.compiler.release=${{ matrix.java }}
+      run: mvn -B package --file pom.xml -Dmaven.compiler.release=${{ matrix.java }} -Pjava${{ matrix.java }}
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn --batch-mode deploy -s $GITHUB_WORKSPACE/settings.xml -Dmaven.compiler.release=${{ matrix.java }}
+      run: mvn --batch-mode deploy -s $GITHUB_WORKSPACE/settings.xml -Dmaven.compiler.release=${{ matrix.java }} -Pjava${{ matrix.java }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
