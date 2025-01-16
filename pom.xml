@@ -2,10 +2,72 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>version-tracker</artifactId>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.debu999</groupId>
+  <artifactId>version-tracker-jdk${maven.compiler.release}</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Version Metadata Information Tracker Library</name>
+  <description>
+    Provides the details for tracking the version of the current library
+    and/or the application which imports it.
+  </description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+<dependencies>
+    <dependency>
+      <artifactId>maven-model-builder</artifactId>
+      <groupId>org.apache.maven</groupId>
+      <version>3.9.9</version>
+    </dependency>
+  </dependencies>
+
+  <!-- Project Information -->
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub debu999 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/debu999/version-tracker</url>
+    </repository>
+  </distributionManagement> <!-- A user-friendly name for your project -->
+
+
+  <!-- Build Configuration -->
+  <profiles>
+    <profile>
+      <id>java17</id>
+      <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>java21</id>
+      <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+      </properties>
+    </profile>
+    <profile>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <id>java23</id>
+      <properties>
+        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+      </properties>
+    </profile>
+  </profiles>
 
   <build>
-    <finalName>${project.artifactId}-jdk${maven.compiler.release}-${project.version}</finalName>
     <plugins>
       <!-- Maven Compiler Plugin -->
       <plugin>
@@ -63,69 +125,5 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <artifactId>maven-model-builder</artifactId>
-      <groupId>org.apache.maven</groupId>
-      <version>3.9.9</version>
-    </dependency>
-  </dependencies>
-  <description>
-    Provides the details for tracking the version of the current library
-    and/or the application which imports it.
-  </description>
-
-  <!-- Project Information -->
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub debu999 Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/debu999/version-tracker</url>
-    </repository>
-  </distributionManagement> <!-- A user-friendly name for your project -->
-  <groupId>io.github.debu999</groupId>
-
-  <modelVersion>4.0.0</modelVersion>
-
-  <name>Version Metadata Information Tracker Library
-  </name>
-
-  <!-- Build Configuration -->
-  <profiles>
-    <profile>
-      <id>java17</id>
-      <properties>
-        <maven.compiler.release>17</maven.compiler.release>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>java21</id>
-      <properties>
-        <maven.compiler.release>21</maven.compiler.release>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-      </properties>
-    </profile>
-    <profile>
-      <id>java23</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <maven.compiler.release>23</maven.compiler.release>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
-      </properties>
-    </profile>
-  </profiles>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <version>1.0.0-SNAPSHOT</version>
 
 </project>
