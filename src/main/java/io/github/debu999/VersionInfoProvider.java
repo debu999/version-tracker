@@ -1,4 +1,4 @@
-package org.doogle;
+package io.github.debu999;
 
 import java.io.IOException;
 import java.io.InputStream;
